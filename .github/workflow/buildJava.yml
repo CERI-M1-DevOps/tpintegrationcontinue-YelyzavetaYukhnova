@@ -2,8 +2,7 @@ name: Java CI with Maven - Test and package
 
 on:              # Ce workflow se déclenche sur un pull request sur la branche main
  pull_request:
-    branches:
-      - main 
+    branches: [main] 
 jobs:      
  Build: # Nom du job : Build
   name: Build
