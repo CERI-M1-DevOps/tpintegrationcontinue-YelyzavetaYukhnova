@@ -15,4 +15,4 @@ jobs:
       distribution: 'corretto'
       java-version: '21'
    - name: Maven
-     run: mvn –B package
+     run: mvn -B package
