@@ -22,6 +22,13 @@ jobs:
       key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
       restore-keys: |
         maven-${{ runner.os }}-
+   - name: Cache SonarQube packages
+     uses: actions/cache@v4
+     with:
+       path: ~/.sonar/cache
+       key: sonar-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+       restore-keys: |
+         sonar-${{ runner.os }}-     
    - name: Maven
      env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
