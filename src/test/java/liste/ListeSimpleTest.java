@@ -62,12 +62,12 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(3), Noeud(4), Noeud(1))", listeATester.toString());
         assertEquals(4, listeATester.tete.getSuivant().getElement());
     }
-    
+
     @Test
     void modifiePremierElementAbsent() {
     listeATester.ajout(1);
     listeATester.ajout(2);
-    listeATester.modifiePremier(3, 99); // 3 is not in the list
+    listeATester.modifiePremier(3, 99); 
     assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
 }
 
@@ -263,5 +263,14 @@ class ListeSimpleTest {
         listeATester.echanger(r1, r2);
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
+    }
+
+    @Test
+    void echangerMemeNoeud() {
+    listeATester.ajout(1);
+    listeATester.ajout(2);
+    Noeud r1 = listeATester.tete;
+    listeATester.echanger(r1, r1); // echanger le même noeud avec lui-même
+    assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
     }
 }
