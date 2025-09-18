@@ -67,7 +67,7 @@ class ListeSimpleTest {
     void modifiePremierElementAbsent() {
     listeATester.ajout(1);
     listeATester.ajout(2);
-    listeATester.modifiePremier(3, 99); 
+    listeATester.modifiePremier(3, 99); //Comme 3 n'est pas présent, la méthode ne modifie rien.
     assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
 }
 
