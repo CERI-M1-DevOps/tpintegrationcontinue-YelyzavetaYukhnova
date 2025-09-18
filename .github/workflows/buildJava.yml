@@ -19,16 +19,16 @@ jobs:
      with:
       path: | # par défaut ~/.m2/repository c'est un dépôt local pour les dépendances Maven sur un système Unix/Linux.
         ~/.m2/repository 
-      key: maven-${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+      key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
       restore-keys: |
-        maven-${{ runner.os }}-m2
+        maven-${{ runner.os }}-
    - name: Cache SonarQube packages
      uses: actions/cache@v4
      with:
        path: ~/.sonar/cache
-       key: ${{ runner.os }}-sonar
+       key: sonar-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
        restore-keys: |
-         ${{ runner.os }}-sonar     
+         sonar-${{ runner.os }}-     
    - name: Maven
      env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
