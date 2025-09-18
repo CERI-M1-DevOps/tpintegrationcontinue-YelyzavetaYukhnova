@@ -5,7 +5,7 @@ on:              # Ce workflow se déclenche sur un pull request fusionnée (mer
     types:
       - closed
 
-jobs:      
+jobs:     
   if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest # OS où s'exécute le job
@@ -22,4 +22,4 @@ jobs:
      - uses: peaceiris/actions-gh-pages@v4  
        with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./target/site/apidocs
+        publish_dir: ./target/reports/apidocs
